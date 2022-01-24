@@ -37,10 +37,7 @@ Arduino Uno is an open-source microcontroller board developed by Arduino.cc. It 
 
 ## Circuit Diagram
 
-
-
-https://user-images.githubusercontent.com/95871421/150782771-07951af7-9144-4787-a2c6-5b6330919ad8.mp4
-
+![blink circut](https://user-images.githubusercontent.com/95871421/150783162-1fbf57ed-54ea-4587-9911-3e69deaa53eb.png)
 
 
 ## Code
@@ -64,7 +61,7 @@ void loop()
 ## Output
 
 
-https://user-images.githubusercontent.com/95871421/147326488-ddded820-d5e0-46cb-a2ec-ab6eb0316895.mp4
+[Output Video](https://user-images.githubusercontent.com/95871421/147326488-ddded820-d5e0-46cb-a2ec-ab6eb0316895.mp4)
 
 # Experiment 2 - Traffic Light
 
