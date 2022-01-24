@@ -155,4 +155,632 @@ void loop()
 
 https://user-images.githubusercontent.com/95871421/147329783-90be3bc1-2cd2-4796-9400-e73f9af32535.mp4
 
+# Experiment 4 -Button Controlled LED
+An experiment to light an LED using a Push Button.
+## Components
+* Arduino Uno
+* Breadboard
+* LED 
+* Jumper wire
+* Restsor 220 ohm , 10 ohm
+* michro switch
+
+## Circuit Diagram
+![cd4](https://user-images.githubusercontent.com/95871421/150775239-7bec4eb4-d851-444f-8509-b0a406f98251.png)
+
+## Code
+```ino
+// set Read pin 10
+#define READ_PIN 10
+// led colnnect 13 
+#define LED 13
+bool readData=0;
+void setup(){ 
+  pinMode(READ_PIN ,INPUT);
+  pinMode(LED ,OUTPUT);
+} 
+void loop(){
+  readData=digitalRead(READ_PIN); // read data
+  Serial.println(readData);
+  digitalWrite(LED,readData); // read data high LED WILL ON otherwice led will off
+}
+```
+
+# Experiment 5 -BUZZER
+## Components
+* Arduino 
+* Breadboard
+* BUZZER
+* Jumper wire
+
+## Circuit
+![cd5](https://user-images.githubusercontent.com/95871421/150775720-04a5c3ed-69fa-4917-8738-57fbdf8f594c.png)
+
+
+## Code
+```ino
+// Buzzer Connect 13
+#define BUZZER 13
+void setup(){ 
+  pinMode(BUZZER ,OUTPUT);
+} 
+void loop(){
+  digitalWrite(BUZZER,HIGH); // BUZZER ON
+  delay(1000);
+  digitalWrite(BUZZER,LOW); // BUZZER OFF
+  delay(1000);
+}
+```
+
+
+# Experiment 6 -RGB LED
+## Components
+* Arduino Uno
+* Breadboard
+* RGB LED
+* Jumper wire
+* Restsor 220 ohm 
+
+## Circuit
+
+![cd6](https://user-images.githubusercontent.com/95871421/150775833-e5fcca96-ec27-43bb-9b2d-553a745d6958.png)
+
+
+## Code
+```ino
+int RGB_LED[]={11,9,10};
+void setup(){ 
+  for(int i=0;i<3;i++)
+    pinMode(RGB_LED[i],OUTPUT);
+} 
+void loop(){
+  for(int j=0;j<255;j++){
+    analogWrite(RGB_LED[0],j);
+    analogWrite(RGB_LED[1],0);
+    analogWrite(RGB_LED[2],0);
+    delay(5);
+  }
+  for(int j=0;j<255;j++){
+    analogWrite(RGB_LED[0],0);
+    analogWrite(RGB_LED[1],j);
+    analogWrite(RGB_LED[2],0);
+    delay(5);
+  }
+  for(int j=0;j<255;j++){
+    analogWrite(RGB_LED[0],0);
+    analogWrite(RGB_LED[1],0);
+    analogWrite(RGB_LED[2],j);
+    delay(5);
+  }
+  for(int j=0;j<255;j++){
+    analogWrite(RGB_LED[0],j);
+    analogWrite(RGB_LED[1],j);
+    analogWrite(RGB_LED[2],0);
+    delay(5);
+  }
+  for(int j=0;j<255;j++){
+    analogWrite(RGB_LED[0],j);
+    analogWrite(RGB_LED[1],0);
+    analogWrite(RGB_LED[2],j);
+    delay(5);
+  }
+  for(int j=0;j<255;j++){
+    analogWrite(RGB_LED[0],0);
+    analogWrite(RGB_LED[1],j);
+    analogWrite(RGB_LED[2],j);
+    delay(5);
+  }
+  for(int j=0;j<255;j++){
+    analogWrite(RGB_LED[0],j);
+    analogWrite(RGB_LED[1],j);
+    analogWrite(RGB_LED[2],j);
+    delay(5);
+  }
+  
+}
+```
+
+
+# Experiment  7- LDR SENSOR 
+## Components
+* Arduino Uno
+* Breadboard
+* RED,GREEN LED
+* Jumper wire
+* Restsor 220 ohm 10 k
+* LDR Sensor
+
+## Circuit
+![cd7](https://user-images.githubusercontent.com/95871421/150775972-a876855a-e3c0-4230-8786-f1da8352fceb.png)
+
+
+## Code
+```ino
+#define LDR 12 // LDR CONNECT 12
+#define RLED 11 // Red LED CONNECT 11
+#define GLED 10 // Green LED Connect 10
+bool readData=0;
+void setup(){ 
+  pinMode(RLED,OUTPUT);
+  pinMode(GLED,OUTPUT);
+  pinMode(LDR,INPUT);
+} 
+void loop(){
+  readData=digitalRead(LDR);
+  digitalWrite(RLED,readData);
+  digitalWrite(GLED,!readData);
+}
+```
+
+# Experiment  8- FLAME SENSOR 
+## Components
+* Arduino Uno
+* Breadboard
+* RED LED
+* BUZZER
+* Jumper wire
+* Restsor 220 ohm 10 k
+* Flame Sensor
+
+## Circuit Diagram
+![cd8](https://user-images.githubusercontent.com/95871421/150776116-853ef3be-762f-4409-90b6-7bed912152b8.png)
+
+## Code
+```ino
+#define FLAME A0 // Flaem sensor CONNECT A0
+#define RED 11 // Red LED CONNECT 11
+#define BUZZER 10 // Buzzer LED Connect 10
+
+int data;
+void setup(){ 
+  pinMode(RED,OUTPUT);
+  pinMode(FLAME,INPUT);
+  pinMode(BUZZER,OUTPUT);
+  Serial.begin(9600);
+} 
+void loop(){
+  data=analogRead(FLAME);
+  Serial.print("DATA :");
+  Serial.println(data);
+  if(data>600){
+    digitalWrite(RED,HIGH);
+    digitalWrite(BUZZER,HIGH);
+    delay(1000);
+  }else{
+    digitalWrite(RED,LOW);
+    digitalWrite(BUZZER,LOW);
+  }
+}
+```
+
+# Experiment  9- LM35 Temperature Sensor
+## Components
+* Arduino Uno
+* Breadboard
+* Jumper wire
+
+## Circuit Diagram
+![cd9](https://user-images.githubusercontent.com/95871421/150776454-7b693faa-6e65-4b87-80e7-48455e1dc78c.png)
+
+
+## Code
+```ino
+#define LM35_SENSOR A0 // Flaem sensor CONNECT A0
+float readData;
+float tempC,tempF;
+void setup(){ 
+  pinMode(LM35_SENSOR,INPUT);
+  Serial.begin(9600);
+} 
+void loop(){
+  readData=analogRead(LM35_SENSOR);
+  tempC=(readData/1024.0)*500;
+  Serial.print("Temprature : ");
+  Serial.print(tempC);
+  Serial.print(" *C =");
+  tempF=(tempC*9.0)/5.0 + 32.0;
+  Serial.print(tempF);
+  Serial.println(" *F");
+}
+```
+
+
+
+# Experiment  10- IR Remote Control Using TSOP
+
+## Components
+* Arduino Uno
+* Breadboard
+* Jumper wire
+* IR Recever (TSOP)
+* 5 LED
+* 220 ohm Resistor
+* IR REMOTE (Any remote)
+
+## Circuit Diagram
+
+![cd102](https://user-images.githubusercontent.com/95871421/150777235-4750076a-2a17-4287-a7d4-71ea95fe3a03.png)
+
+
+## Code
+```ino
+#define IR_PIN A0 // Flaem sensor CONNECT A0
+#include<IRremote.h>
+unsigned long receveData[]={0x1FE50AF,0x1FED827,0x1FEF807,0x1FE30CF,0x1FEB04F,0x1FE708F};
+bool statusData[]{0,0,0,0,0,0};
+int led[]={7,6,5,4,3,2};
+IRrecv irrecv(IR_PIN);
+decode_results  result;
+void setup(){ 
+  Serial.begin(9600);
+  irrecv.enableIRIn();
+  for(int i=0;i<6;i++)
+    pinMode(led[i],OUTPUT);
+} 
+void loop(){
+  if(irrecv.decode(&result)){
+    Serial.println(result.value,HEX);
+    for(int i=0;i<6;i++){
+      if(result.value==receveData[i]){
+        statusData[i]=!statusData[i];
+        digitalWrite(led[i],statusData[i]);
+      }
+    }
+    irrecv.resume();
+  }
+}
+```
+
+
+
+# Experiment  12- Seven Segment Display
+
+## Components
+* Arduino Uno
+* Breadboard
+* Seven Segment Display
+* Jumper wire
+* Restsor 220 ohm
+
+### Circuit
+
+
+
+### Code
+```ino
+
+int sevenSeg[]={13,12,11,10,9,8,7,6};
+void number(int i){
+  switch(i){
+    case 0: digitalWrite(sevenSeg[0],LOW);
+            digitalWrite(sevenSeg[1],LOW);
+            digitalWrite(sevenSeg[2],LOW);
+            
+            //digitalWrite(sevenSeg[3],HIGH);
+            digitalWrite(sevenSeg[4],HIGH);
+            
+            digitalWrite(sevenSeg[5],LOW);
+            digitalWrite(sevenSeg[6],LOW);
+            digitalWrite(sevenSeg[7],LOW);
+            break;
+    case 1: digitalWrite(sevenSeg[0],LOW);
+            digitalWrite(sevenSeg[1],HIGH);
+            digitalWrite(sevenSeg[2],HIGH);
+            
+            //digitalWrite(sevenSeg[3],HIGH);
+            digitalWrite(sevenSeg[4],HIGH);
+            
+            digitalWrite(sevenSeg[5],LOW);
+            digitalWrite(sevenSeg[6],HIGH);
+            digitalWrite(sevenSeg[7],HIGH);
+            break;
+    case 2: digitalWrite(sevenSeg[0],LOW);
+            digitalWrite(sevenSeg[1],LOW);
+            digitalWrite(sevenSeg[2],HIGH);
+            
+           // digitalWrite(sevenSeg[3],HIGH); 
+            digitalWrite(sevenSeg[4],LOW);
+            
+            digitalWrite(sevenSeg[5],HIGH);
+            digitalWrite(sevenSeg[6],LOW);
+            digitalWrite(sevenSeg[7],LOW);
+            break;
+    case 3: digitalWrite(sevenSeg[0],HIGH);
+            digitalWrite(sevenSeg[1],LOW);
+            digitalWrite(sevenSeg[2],LOW);
+            
+            //digitalWrite(sevenSeg[3],HIGH); 
+            digitalWrite(sevenSeg[4],LOW);
+            
+            digitalWrite(sevenSeg[5],HIGH);
+            digitalWrite(sevenSeg[6],LOW);
+            digitalWrite(sevenSeg[7],LOW);
+            break;
+    case 4: digitalWrite(sevenSeg[0],HIGH);
+            digitalWrite(sevenSeg[1],HIGH);
+            digitalWrite(sevenSeg[2],LOW);
+            
+            //digitalWrite(sevenSeg[3],HIGH); 
+            digitalWrite(sevenSeg[4],LOW);
+            
+            digitalWrite(sevenSeg[5],LOW);
+            digitalWrite(sevenSeg[6],HIGH);
+            digitalWrite(sevenSeg[7],LOW);
+            break;
+
+    case 5: digitalWrite(sevenSeg[0],HIGH);
+            digitalWrite(sevenSeg[1],LOW);
+            digitalWrite(sevenSeg[2],LOW);
+            
+            //digitalWrite(sevenSeg[3],HIGH); 
+            digitalWrite(sevenSeg[4],LOW);
+            
+            digitalWrite(sevenSeg[5],LOW);
+            digitalWrite(sevenSeg[6],LOW);
+            digitalWrite(sevenSeg[7],HIGH);
+            break;
+   case 6: digitalWrite(sevenSeg[0],LOW);
+            digitalWrite(sevenSeg[1],LOW);
+            digitalWrite(sevenSeg[2],LOW);
+            
+            //digitalWrite(sevenSeg[3],HIGH); 
+            digitalWrite(sevenSeg[4],LOW);
+            
+            digitalWrite(sevenSeg[5],LOW);
+            digitalWrite(sevenSeg[6],LOW);
+            digitalWrite(sevenSeg[7],HIGH);
+            break;
+    case 7: digitalWrite(sevenSeg[0],HIGH);
+            digitalWrite(sevenSeg[1],HIGH);
+            digitalWrite(sevenSeg[2],LOW);
+            
+            //digitalWrite(sevenSeg[3],HIGH);
+            digitalWrite(sevenSeg[4],HIGH);
+            
+            digitalWrite(sevenSeg[5],HIGH);
+            digitalWrite(sevenSeg[6],LOW);
+            digitalWrite(sevenSeg[7],LOW);
+            break;
+   case 8: digitalWrite(sevenSeg[0],LOW);
+            digitalWrite(sevenSeg[1],LOW);
+            digitalWrite(sevenSeg[2],LOW);
+            
+            //digitalWrite(sevenSeg[3],HIGH);
+            digitalWrite(sevenSeg[4],LOW);
+            
+            digitalWrite(sevenSeg[5],LOW);
+            digitalWrite(sevenSeg[6],LOW);
+            digitalWrite(sevenSeg[7],LOW);
+            break;
+   case 9: digitalWrite(sevenSeg[0],HIGH);
+            digitalWrite(sevenSeg[1],LOW);
+            digitalWrite(sevenSeg[2],LOW);
+            
+            //digitalWrite(sevenSeg[3],HIGH);
+            digitalWrite(sevenSeg[4],LOW);
+            
+            digitalWrite(sevenSeg[5],LOW);
+            digitalWrite(sevenSeg[6],LOW);
+            digitalWrite(sevenSeg[7],LOW);
+            break;
+      
+  }
+  
+}
+void setup(){ 
+  Serial.begin(9600);
+ 
+  for(int i=0;i<8;i++){
+    pinMode(sevenSeg[i],OUTPUT);
+    digitalWrite(sevenSeg[i],HIGH);
+  }
+  
+    
+} 
+void loop(){
+  for(int i=9;i>=0;i--){
+    number(i);
+    delay(750);
+  }
+}
+```
+
+# Assigenment 
+
+## Assigenment  1- Night lighting system 
+### Components
+* Arduino Uno
+* Breadboard
+* RED,GREEN LED
+* Jumper wire
+* Restsor 220 ohm 10 k
+* LDR Sensor
+
+### Circuit
+![Expriment 3](https://sci-copath.github.io/Kerala-IoT-Challenge/assat/image/ass1.png)
+### Video
+![Expriment 2](https://sci-copath.github.io/Kerala-IoT-Challenge/assat/videos/ass1.gif)
+
+### Code
+```ino
+#define LDR A0// LDR CONNECT A0
+#define LED 11 // LED CONNECT 11
+int readData=0;
+void setup(){ 
+  pinMode(LED,OUTPUT);
+  pinMode(LDR,INPUT);
+  Serial.begin(9600);
+} 
+void loop(){
+  readData=analogRead(LDR);
+  Serial.println(readData);
+  if(readData>200)
+    digitalWrite(LED,HIGH);
+  else
+    digitalWrite(LED,LOW);
+}
+```
+
+## Assigenment 2 - 6 Number Random Dice
+
+### Components
+* Arduino Uno
+* Breadboard
+* pushbuttion
+* Jumper wire
+* Restsor 220 ohm
+* push buttion
+
+### Circuit
+![Expriment 3](https://sci-copath.github.io/Kerala-IoT-Challenge/assat/image/ass2.png)
+### Video
+![Expriment 2](https://sci-copath.github.io/Kerala-IoT-Challenge/assat/videos/ass2.gif)
+
+
+### Code
+```ino
+#define readPin A0
+bool readStatus=0;
+int sevenSeg[]={13,12,11,10,9,8,7,6};
+void number(int i){
+  switch(i){
+    case 0: digitalWrite(sevenSeg[0],LOW);
+            digitalWrite(sevenSeg[1],LOW);
+            digitalWrite(sevenSeg[2],LOW);
+            
+            //digitalWrite(sevenSeg[3],HIGH);
+            digitalWrite(sevenSeg[4],HIGH);
+            
+            digitalWrite(sevenSeg[5],LOW);
+            digitalWrite(sevenSeg[6],LOW);
+            digitalWrite(sevenSeg[7],LOW);
+            break;
+    case 1: digitalWrite(sevenSeg[0],LOW);
+            digitalWrite(sevenSeg[1],HIGH);
+            digitalWrite(sevenSeg[2],HIGH);
+            
+            //digitalWrite(sevenSeg[3],HIGH);
+            digitalWrite(sevenSeg[4],HIGH);
+            
+            digitalWrite(sevenSeg[5],LOW);
+            digitalWrite(sevenSeg[6],HIGH);
+            digitalWrite(sevenSeg[7],HIGH);
+            break;
+    case 2: digitalWrite(sevenSeg[0],LOW);
+            digitalWrite(sevenSeg[1],LOW);
+            digitalWrite(sevenSeg[2],HIGH);
+            
+           // digitalWrite(sevenSeg[3],HIGH); 
+            digitalWrite(sevenSeg[4],LOW);
+            
+            digitalWrite(sevenSeg[5],HIGH);
+            digitalWrite(sevenSeg[6],LOW);
+            digitalWrite(sevenSeg[7],LOW);
+            break;
+    case 3: digitalWrite(sevenSeg[0],HIGH);
+            digitalWrite(sevenSeg[1],LOW);
+            digitalWrite(sevenSeg[2],LOW);
+            
+            //digitalWrite(sevenSeg[3],HIGH); 
+            digitalWrite(sevenSeg[4],LOW);
+            
+            digitalWrite(sevenSeg[5],HIGH);
+            digitalWrite(sevenSeg[6],LOW);
+            digitalWrite(sevenSeg[7],LOW);
+            break;
+    case 4: digitalWrite(sevenSeg[0],HIGH);
+            digitalWrite(sevenSeg[1],HIGH);
+            digitalWrite(sevenSeg[2],LOW);
+            
+            //digitalWrite(sevenSeg[3],HIGH); 
+            digitalWrite(sevenSeg[4],LOW);
+            
+            digitalWrite(sevenSeg[5],LOW);
+            digitalWrite(sevenSeg[6],HIGH);
+            digitalWrite(sevenSeg[7],LOW);
+            break;
+
+    case 5: digitalWrite(sevenSeg[0],HIGH);
+            digitalWrite(sevenSeg[1],LOW);
+            digitalWrite(sevenSeg[2],LOW);
+            
+            //digitalWrite(sevenSeg[3],HIGH); 
+            digitalWrite(sevenSeg[4],LOW);
+            
+            digitalWrite(sevenSeg[5],LOW);
+            digitalWrite(sevenSeg[6],LOW);
+            digitalWrite(sevenSeg[7],HIGH);
+            break;
+   case 6: digitalWrite(sevenSeg[0],LOW);
+            digitalWrite(sevenSeg[1],LOW);
+            digitalWrite(sevenSeg[2],LOW);
+            
+            //digitalWrite(sevenSeg[3],HIGH); 
+            digitalWrite(sevenSeg[4],LOW);
+            
+            digitalWrite(sevenSeg[5],LOW);
+            digitalWrite(sevenSeg[6],LOW);
+            digitalWrite(sevenSeg[7],HIGH);
+            break;
+    case 7: digitalWrite(sevenSeg[0],HIGH);
+            digitalWrite(sevenSeg[1],HIGH);
+            digitalWrite(sevenSeg[2],LOW);
+            
+            //digitalWrite(sevenSeg[3],HIGH);
+            digitalWrite(sevenSeg[4],HIGH);
+            
+            digitalWrite(sevenSeg[5],HIGH);
+            digitalWrite(sevenSeg[6],LOW);
+            digitalWrite(sevenSeg[7],LOW);
+            break;
+   case 8: digitalWrite(sevenSeg[0],LOW);
+            digitalWrite(sevenSeg[1],LOW);
+            digitalWrite(sevenSeg[2],LOW);
+            
+            //digitalWrite(sevenSeg[3],HIGH);
+            digitalWrite(sevenSeg[4],LOW);
+            
+            digitalWrite(sevenSeg[5],LOW);
+            digitalWrite(sevenSeg[6],LOW);
+            digitalWrite(sevenSeg[7],LOW);
+            break;
+   case 9: digitalWrite(sevenSeg[0],HIGH);
+            digitalWrite(sevenSeg[1],LOW);
+            digitalWrite(sevenSeg[2],LOW);
+            
+            //digitalWrite(sevenSeg[3],HIGH);
+            digitalWrite(sevenSeg[4],LOW);
+            
+            digitalWrite(sevenSeg[5],LOW);
+            digitalWrite(sevenSeg[6],LOW);
+            digitalWrite(sevenSeg[7],LOW);
+            break;
+      
+  }
+  
+}
+void setup(){ 
+  Serial.begin(9600);
+ 
+  for(int i=0;i<8;i++){
+    pinMode(sevenSeg[i],OUTPUT);
+    digitalWrite(sevenSeg[i],HIGH);
+  }
+  pinMode(readPin,INPUT_PULLUP);
+  
+  
+    
+} 
+void loop(){
+  if(readStatus==0&&digitalRead(readPin)==LOW){
+    number(random(1,7));
+    readStatus=1;
+  }else if(digitalRead(readPin)==HIGH&&readStatus==1){
+    readStatus=0;
+  }
+  delay(50);
+}
+```
+
+
 
