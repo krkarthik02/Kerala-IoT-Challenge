@@ -4,6 +4,18 @@
 1. [Experiment 1](#experiment-1---hello-world-led-blinking)
 2. [Experiment 2](#experiment-2---traffic-light)
 3. [Experiment 3](#experiment-3---led-chasing-effect)
+4. [Experiment 4](#experiment-4---button-controlled-led)
+5. [Experiment 5](#experiment-5---buzzer)
+6. [Experiment 6](#experiment-6---rgb-led)
+7. [Experiment 7](#experiment-7---ldr-sensor)
+8. [Experiment 8](#experiment-8---flame-sensor)
+9. [Experiment 9](#experiment-9---lm35-temperature-sensor)
+10. [Experiment 10](#experiment-10---ir-remote-control-using-tsop)
+11. [Experiment 11](#experiment-11---ir-led-controll)
+12. [Experiment 12](#experiment-12---seven-segment-display)
+13. [Assignments](#assignments)
+    1. [Assignment 1](#assignment-1---night-lighting-system)
+    2. [Assignment 2](#assignment-1---6-number-random-dice)
 
 ### Kerala-IoT-Challenge
   Foxlab Makerspace in association with GTech - Group of Technology Companies in Kerala is launching our prestigious program “Kerala IoT Challenge 2021”, with a vision to mould 100 IoT experts in Kerala, hosting on the µLearn platform. Kerala IoT Challenge is a program designed in 4 levels followed by a hackathon to identify and train quality industry leaders in the IoT domain, while any novice learner can start with layer 1 and others can enter laterally to the desired layer after an evaluation.
@@ -22,6 +34,7 @@ Arduino Uno is an open-source microcontroller board developed by Arduino.cc. It 
 * 220 OHM Resistor X 1 Nos
 * Breadboard
 * Jumper Wires (Male to Male ) X 2 Nos
+
 ## Circuit Diagram
 
 ![blink circut](https://user-images.githubusercontent.com/95871421/147322940-8d19b77b-7ae9-4437-b231-1c75ead01c83.png)
@@ -65,6 +78,7 @@ In the previous program, we have done the LED blinking experiment with one LED. 
 ![traffic light](https://user-images.githubusercontent.com/95871421/147324918-6cdfe934-2efd-4de4-aed1-1fae4e9f3a82.png)
 
 ## Code
+
 ```
 #define RED 7
 #define YELLOW 6
@@ -103,6 +117,7 @@ void loop(){
 }
 }
 ```
+
 ## Output
 
 In Traffic light the green LED blink about 5 second, then it is turnoff. Then the yellow LED blinks 3 times with a time interval of 1 second.Then the red LED blink about 5 seconds. This process continues.
@@ -155,8 +170,9 @@ void loop()
 
 https://user-images.githubusercontent.com/95871421/147329783-90be3bc1-2cd2-4796-9400-e73f9af32535.mp4
 
-# Experiment 4 -Button Controlled LED
+# Experiment 4 - Button Controlled LED
 An experiment to light an LED using a Push Button.
+
 ## Components
 * Arduino Uno
 * Breadboard
@@ -186,14 +202,15 @@ void loop(){
 }
 ```
 
-# Experiment 5 -BUZZER
+# Experiment 5 - BUZZER
+
 ## Components
 * Arduino 
 * Breadboard
 * BUZZER
 * Jumper wire
 
-## Circuit
+## Circuit Diagram
 ![cd5](https://user-images.githubusercontent.com/95871421/150775720-04a5c3ed-69fa-4917-8738-57fbdf8f594c.png)
 
 
@@ -213,7 +230,8 @@ void loop(){
 ```
 
 
-# Experiment 6 -RGB LED
+# Experiment 6 - RGB LED
+
 ## Components
 * Arduino Uno
 * Breadboard
@@ -221,7 +239,7 @@ void loop(){
 * Jumper wire
 * Restsor 220 ohm 
 
-## Circuit
+## Circuit Diagram
 
 ![cd6](https://user-images.githubusercontent.com/95871421/150775833-e5fcca96-ec27-43bb-9b2d-553a745d6958.png)
 
@@ -281,7 +299,8 @@ void loop(){
 ```
 
 
-# Experiment  7- LDR SENSOR 
+# Experiment 7 - LDR SENSOR 
+
 ## Components
 * Arduino Uno
 * Breadboard
@@ -290,7 +309,7 @@ void loop(){
 * Restsor 220 ohm 10 k
 * LDR Sensor
 
-## Circuit
+## Circuit Diagram
 ![cd7](https://user-images.githubusercontent.com/95871421/150775972-a876855a-e3c0-4230-8786-f1da8352fceb.png)
 
 
@@ -312,7 +331,8 @@ void loop(){
 }
 ```
 
-# Experiment  8- FLAME SENSOR 
+# Experiment 8 - FLAME SENSOR 
+
 ## Components
 * Arduino Uno
 * Breadboard
@@ -353,7 +373,8 @@ void loop(){
 }
 ```
 
-# Experiment  9- LM35 Temperature Sensor
+# Experiment 9 - LM35 Temperature Sensor
+
 ## Components
 * Arduino Uno
 * Breadboard
@@ -386,7 +407,7 @@ void loop(){
 
 
 
-# Experiment  10- IR Remote Control Using TSOP
+# Experiment 10 - IR Remote Control Using TSOP
 
 ## Components
 * Arduino Uno
@@ -399,8 +420,33 @@ void loop(){
 
 ## Circuit Diagram
 
-![cd102](https://user-images.githubusercontent.com/95871421/150777235-4750076a-2a17-4287-a7d4-71ea95fe3a03.png)
+![cd10](https://user-images.githubusercontent.com/95871421/150778303-10f2b6a8-ef97-4a6b-9670-2195f8fab7ac.png)
 
+
+
+## Code
+```ino
+#define IR_PIN A0 // IR sensor connect
+#include<IRremote.h> // IR library
+IRrecv irrecv(IR_PIN); // connect ir pin to library
+decode_results  result; 
+void setup(){ 
+  Serial.begin(9600);
+  irrecv.enableIRIn(); 
+  
+} 
+void loop(){
+  if(irrecv.decode(&result)){
+    Serial.println(result.value,HEX);
+    irrecv.resume();
+  }
+}
+```
+# Experiment 11 - IR LED Controll
+
+## Circut Diagram
+
+![cd102](https://user-images.githubusercontent.com/95871421/150777235-4750076a-2a17-4287-a7d4-71ea95fe3a03.png)
 
 ## Code
 ```ino
@@ -433,7 +479,9 @@ void loop(){
 
 
 
-# Experiment  12- Seven Segment Display
+
+
+# Experiment 12 - Seven Segment Display
 
 ## Components
 * Arduino Uno
@@ -442,11 +490,12 @@ void loop(){
 * Jumper wire
 * Restsor 220 ohm
 
-### Circuit
+## Circuit Diagram
+![cd12](https://user-images.githubusercontent.com/95871421/150778404-482ea5ae-8324-4427-9a40-7687ad961998.png)
 
 
 
-### Code
+## Code
 ```ino
 
 int sevenSeg[]={13,12,11,10,9,8,7,6};
@@ -585,10 +634,10 @@ void loop(){
 }
 ```
 
-# Assigenment 
+# Assignments
 
-## Assigenment  1- Night lighting system 
-### Components
+# Assignment 1 - Night lighting system 
+## Components
 * Arduino Uno
 * Breadboard
 * RED,GREEN LED
@@ -596,12 +645,10 @@ void loop(){
 * Restsor 220 ohm 10 k
 * LDR Sensor
 
-### Circuit
-![Expriment 3](https://sci-copath.github.io/Kerala-IoT-Challenge/assat/image/ass1.png)
-### Video
-![Expriment 2](https://sci-copath.github.io/Kerala-IoT-Challenge/assat/videos/ass1.gif)
+## Circuit
 
-### Code
+
+## Code
 ```ino
 #define LDR A0// LDR CONNECT A0
 #define LED 11 // LED CONNECT 11
@@ -621,9 +668,9 @@ void loop(){
 }
 ```
 
-## Assigenment 2 - 6 Number Random Dice
+# Assignment 2 - 6 Number Random Dice
 
-### Components
+## Components
 * Arduino Uno
 * Breadboard
 * pushbuttion
@@ -631,13 +678,9 @@ void loop(){
 * Restsor 220 ohm
 * push buttion
 
-### Circuit
-![Expriment 3](https://sci-copath.github.io/Kerala-IoT-Challenge/assat/image/ass2.png)
-### Video
-![Expriment 2](https://sci-copath.github.io/Kerala-IoT-Challenge/assat/videos/ass2.gif)
 
 
-### Code
+## Code
 ```ino
 #define readPin A0
 bool readStatus=0;
