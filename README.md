@@ -61,7 +61,7 @@ void loop()
 ## Output
 
 
-[Output Video](https://user-images.githubusercontent.com/95871421/147326488-ddded820-d5e0-46cb-a2ec-ab6eb0316895.mp4)
+![Output Video](https://user-images.githubusercontent.com/95871421/147326488-ddded820-d5e0-46cb-a2ec-ab6eb0316895.mp4)
 
 # Experiment 2 - Traffic Light
 
