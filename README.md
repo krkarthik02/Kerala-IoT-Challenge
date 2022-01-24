@@ -647,7 +647,9 @@ void loop(){
 * Restsor 220 ohm 10 k
 * LDR Sensor
 
-## Circuit
+## Circuit Diagram
+
+![ass1cd](https://user-images.githubusercontent.com/95871421/150783910-3b2687ec-1ed9-44a2-84a8-573fe9d0a67e.png)
 
 
 ## Code
@@ -680,6 +682,9 @@ void loop(){
 * Restsor 220 ohm
 * push buttion
 
+## Circut Diagram
+
+![ass2cd](https://user-images.githubusercontent.com/95871421/150783869-480f780f-d60c-4cf9-ad90-8175b5fa0add.png)
 
 
 ## Code
