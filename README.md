@@ -124,7 +124,7 @@ void loop(){
 In Traffic light the green LED blink about 5 second, then it is turnoff. Then the yellow LED blinks 3 times with a time interval of 1 second.Then the red LED blink about 5 seconds. This process continues.
 
 
-https://user-images.githubusercontent.com/95871421/147326600-831abffd-2865-4b25-83b6-3d1ce8a371eb.mp4
+[Output Video](https://user-images.githubusercontent.com/95871421/147326600-831abffd-2865-4b25-83b6-3d1ce8a371eb.mp4)
 
 # Experiment 3 - LED Chasing Effect
 We often see billboards composed of colorful LEDs. They are constantly changing to form various light effects. In this experiment, we compile a program to simulate LED chasing effect. The long lead of LED is the positive side; short lead is negative.
@@ -169,7 +169,7 @@ void loop()
 ## Output
 
 
-https://user-images.githubusercontent.com/95871421/147329783-90be3bc1-2cd2-4796-9400-e73f9af32535.mp4
+[Output Video](https://user-images.githubusercontent.com/95871421/147329783-90be3bc1-2cd2-4796-9400-e73f9af32535.mp4)
 
 # Experiment 4 - Button Controlled LED
 An experiment to light an LED using a Push Button.
