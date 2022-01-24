@@ -40,7 +40,7 @@ Arduino Uno is an open-source microcontroller board developed by Arduino.cc. It 
 ![blink circut](https://user-images.githubusercontent.com/95871421/147322940-8d19b77b-7ae9-4437-b231-1c75ead01c83.png)
 
 ## Code
-```
+```ino
 void setup()
 {
   pinMode(7,OUTPUT);
@@ -79,7 +79,7 @@ In the previous program, we have done the LED blinking experiment with one LED. 
 
 ## Code
 
-```
+```ino
 #define RED 7
 #define YELLOW 6
 #define GREEN 5
@@ -141,7 +141,7 @@ We often see billboards composed of colorful LEDs. They are constantly changing 
 
 
 ## Code
-```
+```ino
 int BASE = 2 ;  
 int NUM = 6;   
 void setup()
