@@ -3,6 +3,7 @@
 ## Contents
 1. [Experiment 1](#experiment-1---hello-world-led-blinking)
 2. [Experiment 2](#experiment-2---traffic-light)
+3. [Experiment 3](#experiment-3---led-chasing-effect)
 
 ### Kerala-IoT-Challenge
   Foxlab Makerspace in association with GTech - Group of Technology Companies in Kerala is launching our prestigious program “Kerala IoT Challenge 2021”, with a vision to mould 100 IoT experts in Kerala, hosting on the µLearn platform. Kerala IoT Challenge is a program designed in 4 levels followed by a hackathon to identify and train quality industry leaders in the IoT domain, while any novice learner can start with layer 1 and others can enter laterally to the desired layer after an evaluation.
@@ -108,4 +109,50 @@ In Traffic light the green LED blink about 5 second, then it is turnoff. Then th
 
 
 https://user-images.githubusercontent.com/95871421/147326600-831abffd-2865-4b25-83b6-3d1ce8a371eb.mp4
+
+# Experiment 3 - LED Chasing Effect
+We often see billboards composed of colorful LEDs. They are constantly changing to form various light effects. In this experiment, we compile a program to simulate LED chasing effect. The long lead of LED is the positive side; short lead is negative.
+
+## Components Required
+* Led *6
+* Arduino board *1
+* 220Ω resistor *6
+* Breadboard *1
+* USB cable*1
+* Breadboard wire *13
+
+## Circuit Diagram
+![chasing](https://user-images.githubusercontent.com/95871421/147329667-5d95d105-c47b-4f0d-86bd-91d250b4b834.png)
+
+
+## Code
+```
+int BASE = 2 ;  
+int NUM = 6;   
+void setup()
+{
+   for (int i = BASE; i < BASE + NUM; i ++) 
+   {
+     pinMode(i, OUTPUT);   // set I/O pins as output
+   }
+}
+void loop()
+{
+   for (int i = BASE; i < BASE + NUM; i ++) 
+   {
+     digitalWrite(i, LOW);    // set I/O pins as “low”, turn off LEDs one by one.
+     delay(250);        // delay
+   }
+   for (int i = BASE; i < BASE + NUM; i ++) 
+   {
+     digitalWrite(i, HIGH);    // set I/O pins as “high”, turn on LEDs one by one
+     delay(250);        // delay
+   }  
+}
+```
+## Output
+
+
+https://user-images.githubusercontent.com/95871421/147329783-90be3bc1-2cd2-4796-9400-e73f9af32535.mp4
+
 
