@@ -121,9 +121,6 @@ void loop(){
 
 ## Output
 
-In Traffic light the green LED blink about 5 second, then it is turnoff. Then the yellow LED blinks 3 times with a time interval of 1 second.Then the red LED blink about 5 seconds. This process continues.
-
-
 [Output Video](https://user-images.githubusercontent.com/95871421/147326600-831abffd-2865-4b25-83b6-3d1ce8a371eb.mp4)
 
 # Experiment 3 - LED Chasing Effect
@@ -204,6 +201,7 @@ void loop(){
 ```
 
 # Experiment 5 - BUZZER
+An experiment to understand the working of a buzzer
 
 ## Components
 * Arduino 
@@ -232,6 +230,7 @@ void loop(){
 
 
 # Experiment 6 - RGB LED
+An experiment to understand the working of a RGB LED.
 
 ## Components
 * Arduino Uno
@@ -301,6 +300,13 @@ void loop(){
 
 
 # Experiment 7 - LDR SENSOR 
+An experiment to understand the working of an LDR light Sensor.
+
+## LDR : Light Dependent Sensor
+
+![ldr](https://user-images.githubusercontent.com/95871421/151294394-14693f41-38a2-43ab-a53b-3fe53cee18d2.png)
+
+Photo Resistor (Photovaristor) is a resistor whose resistance varies from different incident light strength. It’s based on the photoelectric effect of semiconductor. If the incident light is intense, its resistance reduces; if the incident light is weak, the resistance increases.
 
 ## Components
 * Arduino Uno
@@ -333,6 +339,7 @@ void loop(){
 ```
 
 # Experiment 8 - FLAME SENSOR 
+An experiment to understand the working of an Flame sensor
 
 ## Components
 * Arduino Uno
@@ -375,6 +382,10 @@ void loop(){
 ```
 
 # Experiment 9 - LM35 Temperature Sensor
+An experiment to understand the working of an LM35 Temperature Sensor.
+
+## LM35 Temperature Sensor
+LM35 is a common and easy-to-use temperature sensor. LM35 is a widely used temperature sensor with many different package types. At room temperature, it can achieve the accuracy of ±1/4°C without additional calibration processing. LM35 temperature sensor can produce different voltage by different temperature When temperature is 0 ℃, it outputs 0V; if increasing 1 ℃, the output voltage will increase 10 mv.
 
 ## Components
 * Arduino Uno
@@ -409,6 +420,7 @@ void loop(){
 
 
 # Experiment 10 - IR Remote Control Using TSOP
+An experiment to understand the working of IR Remote Control using TSOP
 
 ## Components
 * Arduino Uno
@@ -419,70 +431,124 @@ void loop(){
 * 220 ohm Resistor
 * IR REMOTE (Any remote)
 
-## Circuit Diagram
-
-![cd10](https://user-images.githubusercontent.com/95871421/150778303-10f2b6a8-ef97-4a6b-9670-2195f8fab7ac.png)
-
-
-
-## Code
-```ino
-#define IR_PIN A0 // IR sensor connect
-#include<IRremote.h> // IR library
-IRrecv irrecv(IR_PIN); // connect ir pin to library
-decode_results  result; 
-void setup(){ 
-  Serial.begin(9600);
-  irrecv.enableIRIn(); 
-  
-} 
-void loop(){
-  if(irrecv.decode(&result)){
-    Serial.println(result.value,HEX);
-    irrecv.resume();
-  }
-}
-```
-# Experiment 11 - IR LED Controll
-
 ## Circut Diagram
 
 ![cd102](https://user-images.githubusercontent.com/95871421/150777235-4750076a-2a17-4287-a7d4-71ea95fe3a03.png)
 
 ## Code
 ```ino
-#define IR_PIN A0 // Flaem sensor CONNECT A0
-#include<IRremote.h>
-unsigned long receveData[]={0x1FE50AF,0x1FED827,0x1FEF807,0x1FE30CF,0x1FEB04F,0x1FE708F};
-bool statusData[]{0,0,0,0,0,0};
-int led[]={7,6,5,4,3,2};
-IRrecv irrecv(IR_PIN);
-decode_results  result;
-void setup(){ 
-  Serial.begin(9600);
-  irrecv.enableIRIn();
-  for(int i=0;i<6;i++)
-    pinMode(led[i],OUTPUT);
-} 
-void loop(){
-  if(irrecv.decode(&result)){
-    Serial.println(result.value,HEX);
-    for(int i=0;i<6;i++){
-      if(result.value==receveData[i]){
-        statusData[i]=!statusData[i];
-        digitalWrite(led[i],statusData[i]);
-      }
-    }
-    irrecv.resume();
+#include <IRremote.h> 
+int RECV_PIN = A0;              
+int c=0;                      
+IRrecv irrecv(RECV_PIN);
+decode_results results;
+void setup()
+{
+   pinMode(8, OUTPUT);
+   pinMode(9, OUTPUT);
+   pinMode(10, OUTPUT);
+   pinMode(11, OUTPUT);
+   pinMode(12, OUTPUT);
+
+   Serial.begin(9600);
+  irrecv.enableIRIn();                     
+}
+void loop() {
+  if (irrecv.decode(&results)) {
+    Serial.println(results.value);
+    irrecv.resume();                        
+  if(results.value==33444015)                              
+  {
+             digitalWrite(8,HIGH);
+  }
+  else if(results.value==33441975)
+  {
+             digitalWrite(8,LOW);
+  }
+   if(results.value==33478695)                                     
+  {
+             digitalWrite(9,HIGH);
+  }
+  else if(results.value==33441975)
+  {
+             digitalWrite(9,LOW);
+  }
+    if(results.value==33486855)                                      
+  {
+             digitalWrite(10,HIGH);
+  }
+  else if(results.value==33441975) 
+  {
+             digitalWrite(10,LOW);
+  }
+    if(results.value==33435855)                                       
+  {
+             digitalWrite(11,HIGH);
+  }
+  else if(results.value==33441975)
+  {
+             digitalWrite(11,LOW);
+  }
+    if(results.value==33468495)                                        
+  {
+             digitalWrite(12,HIGH);
+  }
+  else if(results.value==33441975)
+  {
+             digitalWrite(12,LOW);
+  }
   }
 }
 ```
 
+# Experiment 11 :Potentiometer analog Value Reading
+
+> An experiment to understand the working of Potentiometer.
+
+## Components Required
+
+* Arduino Uno Board*1
+* 10K Potentiometer *1
+* Breadboard*1
+* Breadboard Jumper Wire*3
+* USB cable*1
+
+## Circuit Diagrams
+
+![cd11](https://user-images.githubusercontent.com/95871421/151294058-ed0da37e-5335-4a34-b90c-ad715057073f.png)
+
+
+## Code
+
+```
+
+int potpin=0;// initialize analog pin 0
+int ledpin=13;// initialize digital pin 13
+int val=0;// define val, assign initial value 0
+void setup()
+{
+pinMode(ledpin,OUTPUT);// set digital pin as “output”
+Serial.begin(9600);// set baud rate at 9600
+}
+void loop()
+{
+digitalWrite(ledpin,HIGH);// turn on the LED on pin 13
+delay(50);// wait for 0.05 second
+digitalWrite(ledpin,LOW);// turn off the LED on pin 13
+delay(50);// wait for 0.05 second
+val=analogRead(potpin);// read the analog value of analog pin 0, and assign it to val 
+Serial.println(val);// display val’s value
+}
+
+```
+
+## Output
 
 
 
 
 # Experiment 12 - Seven Segment Display
+An experiment to understand the working of 7 Segment Display.
 
 ## Components
 * Arduino Uno
@@ -638,6 +704,7 @@ void loop(){
 # Assignments
 
 # Assignment 1 - Night lighting system 
+An experiment to create automatic night lamp model using LDR and LED
 
 ## Components
 * Arduino Uno
@@ -673,6 +740,7 @@ void loop(){
 ```
 
 # Assignment 2 - 6 Number Random Dice
+An experiment to create a Digital Dice using 6 LEDs and 1 Push Button
 
 ## Components
 * Arduino Uno
