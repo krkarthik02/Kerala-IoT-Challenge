@@ -199,6 +199,13 @@ void loop(){
   digitalWrite(LED,readData); // read data high LED WILL ON otherwice led will off
 }
 ```
+## Output
+
+
+
+https://user-images.githubusercontent.com/95871421/151300869-aaee0c8b-9b24-4fa1-a6f8-416443f0a61a.mp4
+
+
 
 # Experiment 5 - BUZZER
 An experiment to understand the working of a buzzer
@@ -227,6 +234,11 @@ void loop(){
   delay(1000);
 }
 ```
+## Output
+
+
+https://user-images.githubusercontent.com/95871421/151300914-8cfe9e12-73f6-4dd5-bd29-374049169f9b.mp4
+
 
 
 # Experiment 6 - RGB LED
@@ -297,6 +309,11 @@ void loop(){
   
 }
 ```
+## Output
+
+
+https://user-images.githubusercontent.com/95871421/151300961-ce9c0311-8ab4-4466-8427-0f870929aad5.mp4
+
 
 
 # Experiment 7 - LDR SENSOR 
@@ -337,6 +354,13 @@ void loop(){
   digitalWrite(GLED,!readData);
 }
 ```
+## Output
+
+
+
+https://user-images.githubusercontent.com/95871421/151300996-ebe37634-52aa-4ace-898e-740045e5d649.mp4
+
+
 
 # Experiment 8 - FLAME SENSOR 
 An experiment to understand the working of an Flame sensor
@@ -380,6 +404,12 @@ void loop(){
   }
 }
 ```
+## Output
+
+
+https://user-images.githubusercontent.com/95871421/151301061-5935e704-66a1-4c80-b37c-5ef0c5dd8ae6.mp4
+
+
 
 # Experiment 9 - LM35 Temperature Sensor
 An experiment to understand the working of an LM35 Temperature Sensor.
@@ -416,7 +446,9 @@ void loop(){
   Serial.println(" *F");
 }
 ```
+## Output
 
+![exp 9](https://user-images.githubusercontent.com/95871421/151301122-fe2de1dd-27b8-4a35-aed8-70c5822f76aa.jpg)
 
 
 # Experiment 10 - IR Remote Control Using TSOP
@@ -500,6 +532,12 @@ void loop() {
   }
 }
 ```
+## Output
+
+
+https://user-images.githubusercontent.com/95871421/151301880-010bc068-0df9-42fd-ad5a-37804f0a7885.mp4
+
+
 
 # Experiment 11 - Potentiometer analog Value Reading
 
