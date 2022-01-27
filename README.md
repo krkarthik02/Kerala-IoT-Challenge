@@ -583,6 +583,10 @@ Serial.println(val);// display val’s value
 ## Output
 
 
+[Output Video](https://user-images.githubusercontent.com/95871421/151345847-dd8da5e7-f3e0-4cfa-ad3f-62d61d70da17.mp4)
+
+
+
 
 
 # Experiment 12 - Seven Segment Display
@@ -738,6 +742,12 @@ void loop(){
   }
 }
 ```
+## Output 
+
+[Output Video](https://user-images.githubusercontent.com/95871421/151345932-1d4e0e67-10fd-4e10-a3c3-6cbe76097437.mp4)
+
+
+
 
 # Assignments
 
@@ -776,6 +786,9 @@ void loop(){
     digitalWrite(LED,LOW);
 }
 ```
+## Output
+
+[Output Video](https://user-images.githubusercontent.com/95871421/151346198-f7d252d7-b8f4-4b24-9854-d0128b26989b.mp4)
 
 # Assignment 2 - 6 Number Random Dice
 An experiment to create a Digital Dice using 6 LEDs and 1 Push Button
@@ -937,6 +950,9 @@ void loop(){
   delay(50);
 }
 ```
+## Output
+
+[Output Video](https://user-images.githubusercontent.com/95871421/151346319-a7156ad7-7eaf-4bc0-8a53-01b122e0b35b.mp4)
 
 
-
+--------------------------------------------------------------THANK YOU---------------------------------------------------------------------------
