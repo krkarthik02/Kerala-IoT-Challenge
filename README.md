@@ -11,7 +11,7 @@
 8. [Experiment 8](#experiment-8---flame-sensor)
 9. [Experiment 9](#experiment-9---lm35-temperature-sensor)
 10. [Experiment 10](#experiment-10---ir-remote-control-using-tsop)
-11. [Experiment 11](#experiment-11---ir-led-controll)
+11. [Experiment 11](#experiment-11---potentiometer-analog-value-reading)
 12. [Experiment 12](#experiment-12---seven-segment-display)
 13. [Assignments](#assignments)
     1. [Assignment 1](#assignment-1---night-lighting-system)
@@ -501,7 +501,7 @@ void loop() {
 }
 ```
 
-# Experiment 11 :Potentiometer analog Value Reading
+# Experiment 11 - Potentiometer analog Value Reading
 
 > An experiment to understand the working of Potentiometer.
 
